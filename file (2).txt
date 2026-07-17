@@ -1,0 +1,42 @@
+
+## 🎵 Sunet ambiental (opțional)
+
+Site-ul caută un fișier audio la `assets/audio/ambient.mp3`. Acest fișier **nu este inclus** (pentru a păstra proiectul ușor și fără materiale licențiate). Dacă vrei muzică de fundal:
+
+1. Adaugă un fișier MP3 discret, ambiental, la `assets/audio/ambient.mp3`.
+2. Site-ul îl va reda automat, la volum redus, în momentul în care utilizatorul apasă „Intră" (browserele blochează redarea automată fără interacțiune, așa că pornirea este legată de acel click).
+
+Dacă fișierul lipsește, site-ul funcționează perfect în continuare — pur și simplu fără muzică de fundal.
+
+## 🚀 Publicare pe GitHub Pages
+
+1. Creează un repository nou pe GitHub și încarcă toate fișierele din acest proiect (păstrând structura de foldere).
+2. Mergi în **Settings → Pages**.
+3. La secțiunea **Build and deployment**, alege **Deploy from a branch**.
+4. Selectează branch-ul `main` (sau `master`) și folderul `/ (root)`.
+5. Salvează. După câteva minute, GitHub îți va oferi un link de forma:
+   `https://<username-ul-tau>.github.io/<numele-repository-ului>/`
+
+Nu este nevoie de nicio configurare suplimentară — nu există backend, PHP sau Node.js implicat. Totul rulează direct în browser.
+
+## 🛠️ Tehnologii folosite
+
+- HTML5 semantic
+- CSS3 (glassmorphism, gradient-uri, animații, `clamp()` pentru tipografie fluidă)
+- JavaScript vanilla (ES6+)
+- [GSAP](https://gsap.com/) + ScrollTrigger — animații fluide și reveal-uri la scroll (încărcat din CDN)
+- [Three.js](https://threejs.org/) — particule 3D discrete pentru fundal și intro (încărcat din CDN)
+- Canvas 2D API — confetti și cerul înstelat din secțiunea finală
+
+Ambele librării externe sunt încărcate prin CDN în `index.html`, deci nu necesită instalare locală sau pas de build.
+
+## ♿ Accesibilitate & performanță
+
+- Toate elementele interactive sunt `<button>`-uri reale, cu `aria-label` unde este cazul.
+- Animațiile respectă `prefers-reduced-motion: reduce`.
+- Particulele 3D sunt limitate ca număr pe dispozitive touch, pentru performanță.
+- Contrast de culoare gândit pentru lizibilitate pe fundalurile pastelate.
+
+## 📄 Licență
+
+Acest proiect este distribuit sub licența MIT — vezi fișierul [LICENSE](./LICENSE).

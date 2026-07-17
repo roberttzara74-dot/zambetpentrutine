@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pentru tine 🌸</title>
+<meta name="description" content="Un mic univers creat special pentru tine." />
+<meta name="theme-color" content="#ffc9dd" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='[w3.org](http://www.w3.org/2000/svg)' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
+<link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap)" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="no-scroll">
+
+<!-- ============ INTRO CINEMATIC ============ -->
+<section id="intro-screen" aria-label="Introducere">
+  <canvas id="intro-canvas" aria-hidden="true"></canvas>
+  <div class="intro-vignette" aria-hidden="true"></div>
+
+  <div class="intro-content">
+    <div class="intro-lines" id="intro-lines" aria-live="polite">
+      <p class="intro-line" data-line="0">Bună…</p>
+      <p class="intro-line" data-line="1">Am vrut doar să-ți las ceva…</p>
+      <p class="intro-line" data-line="2">Sper să-ți aduc măcar un zâmbet.</p>
+    </div>
+    <button id="enter-btn" class="btn-enter" type="button" aria-label="Intră în site">
+      <span class="btn-enter-sparkle">✨</span>
+      <span>Intră</span>
+    </button>
+  </div>
+
+  <audio id="ambient-audio" loop preload="auto">
+    <source src="assets/audio/ambient.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div id="zoom-flash" aria-hidden="true"></div>
+</section>
+
+<!-- ============ MAIN EXPERIENCE ============ -->
+<div id="app" hidden>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div id="cursor-glow" aria-hidden="true"></div>
+
+  <button id="sound-toggle" class="icon-btn" type="button" aria-label="Pornește sau oprește sunetul">
+    <span class="icon-on">🔊</span>
+    <span class="icon-off">🔇</span>
+  </button>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="section" aria-label="Bun venit">
+      <div class="petal-layer" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow">pentru cineva special</p>
+        <h1 class="hero-title">Un mic univers <span class="script">doar al tău</span></h1>
+        <div class="hero-messages" id="hero-messages" aria-live="polite">
+          <p class="hero-line" data-text="M-am gândit puțin la tine."></p>
+          <p class="hero-line" data-text="Sper că astăzi ai găsit măcar un motiv să zâmbești."></p>
+          <p class="hero-line" data-text="Îți stă foarte bine când zâmbești."></p>
+        </div>
+      </div>
+      <button class="scroll-indicator" id="scroll-indicator" type="button" aria-label="Derulează pentru a descoperi mai mult">
+        <span>descoperă</span>
+        <span class="scroll-arrow">↓</span>
+      </button>
+    </section>
+
+    <!-- MESSAGES -->
+    <section id="messages" class="section" aria-label="Gânduri">
+      <h2 class="section-title reveal-up">Câteva gânduri, pentru tine</h2>
+      <p class="section-sub reveal-up">Citește-le încet. Sunt sincere, toate.</p>
+
+      <div class="messages-grid">
+        <article class="message-card reveal-up" data-icon="🍓">
+          <span class="message-icon">🍓</span>
+          <p>Nu lăsa o zi grea să-ți fure zâmbetul.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="🌙">
+          <span class="message-icon">🌙</span>
+          <p>Sper că ai mâncat astăzi.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="🎀">
+          <span class="message-icon">🎀</span>
+          <p>Sper că ai avut grijă de tine.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="🌸">
+          <span class="message-icon">🌸</span>
+          <p>Dacă ai avut o zi grea, sper ca măcar acest site să ți-o facă puțin mai frumoasă.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="⭐">
+          <span class="message-icon">⭐</span>
+          <p>Ține minte să zâmbești.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="💗">
+          <span class="message-icon">💗</span>
+          <p>Nu uita că meriți liniște.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="🩰">
+          <span class="message-icon">🩰</span>
+          <p>Ești mai puternică decât crezi.</p>
+        </article>
+        <article class="message-card reveal-up" data-icon="☁️">
+          <span class="message-icon">☁️</span>
+          <p>Sper să dormi liniștită, în seara asta.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- HIDDEN SURPRISES -->
+    <section id="surprises" class="section" aria-label="Surprize ascunse">
+      <h2 class="section-title reveal-up">Mici surprize ascunse</h2>
+      <p class="section-sub reveal-up">Ai curiozitatea să le găsești pe toate?</p>
+
+      <div class="surprise-field" id="surprise-field">
+        <button class="surprise-item" style="--x:8%; --y:18%;" data-message="Știam că o vei găsi." aria-label="Surpriză ascunsă">🍓</button>
+        <button class="surprise-item" style="--x:82%; --y:12%;" data-message="Încă un zâmbet, doar pentru tine." aria-label="Surpriză ascunsă">🍓</button>
+        <button class="surprise-item" style="--x:20%; --y:65%;" data-message="Dacă citești asta… îți trimit o îmbrățișare virtuală. 🤍" aria-label="Surpriză ascunsă">⭐</button>
+        <button class="surprise-item" style="--x:70%; --y:70%;" data-message="Promite-mi că vei avea grijă de tine." aria-label="Surpriză ascunsă">🎀</button>
+        <button class="surprise-item" style="--x:45%; --y:35%;" data-message="Ai un zâmbet care schimbă zile întregi." aria-label="Surpriză ascunsă">💌</button>
+        <button class="surprise-item" style="--x:90%; --y:50%;" data-message="Meriți toate lucrurile bune care urmează să ți se întâmple." aria-label="Surpriză ascunsă">✨</button>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section" aria-label="Galerie">
+      <h2 class="section-title reveal-up">Galerie</h2>
+      <p class="section-sub reveal-up">Atinge fiecare fotografie. Are ceva scris pe spate.</p>
+
+      <div class="polaroid-gallery">
+
+        <button class="polaroid reveal-up" data-tilt="-6">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-1">
+              <span class="polaroid-emoji">🌸</span>
+              <p class="polaroid-caption">petale în vânt</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Ai grijă de zâmbetul tău, e unul dintre cele mai frumoase lucruri pe care le am de văzut.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="polaroid reveal-up" data-tilt="4">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-2">
+              <span class="polaroid-emoji">⭐</span>
+              <p class="polaroid-caption">o noapte senină</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Sper ca stelele astea să-ți amintească să visezi frumos în continuare.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="polaroid reveal-up" data-tilt="-3">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-3">
+              <span class="polaroid-emoji">🍓</span>
+              <p class="polaroid-caption">o dimineață dulce</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Sper că ai avut parte azi de un mic lucru dulce, exact cât să te facă să zâmbești.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="polaroid reveal-up" data-tilt="5">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-4">
+              <span class="polaroid-emoji">🎀</span>
+              <p class="polaroid-caption">funde și liniște</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Meriți o zi liniștită, fără nimic care să-ți apese umerii.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="polaroid reveal-up" data-tilt="-5">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-5">
+              <span class="polaroid-emoji">💗</span>
+              <p class="polaroid-caption">gânduri bune</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Ești genul de persoană pentru care merită creat ceva cu grijă. Exact ca acest site.</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="polaroid reveal-up" data-tilt="3">
+          <div class="polaroid-inner">
+            <div class="polaroid-front ph-6">
+              <span class="polaroid-emoji">☁️</span>
+              <p class="polaroid-caption">un cer moale</p>
+            </div>
+            <div class="polaroid-back">
+              <p>Și dacă azi nu ai avut un motiv să zâmbești… sper să fie acesta.</p>
+            </div>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- MINI GAME -->
+    <section id="game" class="section" aria-label="Joc — găsește căpșunile">
+      <h2 class="section-title reveal-up">Găsește cele 5 căpșuni</h2>
+      <p class="section-sub reveal-up">Sunt ascunse prin preajmă. Atinge-le pe rând.</p>
+
+      <div class="game-progress reveal-up">
+        Găsite: <span id="found-count">0</span>/5
+      </div>
+
+      <div class="game-field" id="game-field">
+        <canvas id="confetti-canvas"></canvas>
+
+        <button class="hidden-strawberry" style="--x:10%; --y:20%;" aria-label="căpșună ascunsă">🍓</button>
+        <button class="hidden-strawberry" style="--x:78%; --y:15%;" aria-label="căpșună ascunsă">🍓</button>
+        <button class="hidden-strawberry" style="--x:35%; --y:55%;" aria-label="căpșună ascunsă">🍓</button>
+        <button class="hidden-strawberry" style="--x:60%; --y:75%;" aria-label="căpșună ascunsă">🍓</button>
+        <button class="hidden-strawberry" style="--x:88%; --y:60%;" aria-label="căpșună ascunsă">🍓</button>
+
+        <div class="game-complete" id="game-complete" aria-live="polite">
+          <p class="game-complete-title">Felicitări.</p>
+          <p>Ai câștigat încă un motiv să zâmbești.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINALE -->
+    <section id="finale" class="section" aria-label="Final">
+      <canvas id="finale-canvas" aria-hidden="true"></canvas>
+      <div class="finale-content" id="finale-content" aria-live="polite">
+        <p class="finale-line" data-text="Dacă ai ajuns până aici…"></p>
+        <p class="finale-line" data-text="îți mulțumesc."></p>
+        <p class="finale-line" data-text="Sper că ai zâmbit măcar o dată."></p>
+        <p class="finale-line" data-text="Dacă da…"></p>
+        <p class="finale-line finale-emphasis" data-text="atunci scopul acestui site a fost îndeplinit."></p>
+        <p class="finale-flower">🌸</p>
+        <p class="finale-line finale-final" data-text="Să ai grijă de tine."></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>făcut cu <span aria-hidden="true">🩷</span> grijă, pentru tine</p>
+  </footer>
+
+  <!-- SURPRISE MODAL -->
+  <div class="modal-overlay" id="surprise-modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-text">
+      <p id="modal-text"></p>
+      <button class="modal-close" id="modal-close" type="button" aria-label="Închide">✕</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js)"></script>
+<script src="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js)"></script>
+<script src="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js)"></script>
+<script src="script.js" defer></script>
+</body>
+</html>
